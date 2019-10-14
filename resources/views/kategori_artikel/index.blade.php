@@ -32,7 +32,16 @@
                             <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
                             <td>{!! $item->updated_at->format('d/m/Y H:i:s') !!}</td>
                         <td>
-                        <a href="{!! route('kategori_artikel.show',[$item->id]) !!}" class="btn btn-sm btn-success">Lihat</a>
+                        <a href="{!! route('kategori_artikel.show',[$item->id]) !!}" class="btn btn-sm btn-success">Lihat
+                        </a>
+                        <a href="{!! route('kategori_artikel.edit',[$item->id]) !!}" class="btn btn-sm btn-warning">Ubah
+                        </a>
+
+                        {!! Form::open(['route' => ['kategori_artikel.destroy', $item->id], 'method' => 'delete']); !!}
+
+                        {!! Form::submit('Hapus', ['class'=>'btn btn-sm btn-danger','onclick'=>"return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini??')"]); !!}
+
+                        {!! Form::close() !!}
                         </td>
                         </tr>                        
                         @endforeach

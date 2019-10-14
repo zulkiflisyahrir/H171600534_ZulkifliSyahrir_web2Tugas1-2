@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Pengumuman extends Model
 {
+	use SoftDeletes;
+
     protected $table='pengumuman';
 
     protected $fillable=[
@@ -13,7 +15,7 @@ class Pengumuman extends Model
     ];
 
     protected $casts=[
-    	
+    	'deleted_at'=>'datetime'
     ];
 }
 

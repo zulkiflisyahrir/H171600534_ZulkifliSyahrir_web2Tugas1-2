@@ -33,22 +33,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @auth
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Menu
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Kategori
                             </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="kategori_artikel">Kategori Artikel</a>
                                   <a class="dropdown-item" href="kategori_berita">Kategori Berita</a>
                                   <a class="dropdown-item" href="kategori_galeri">Kategori Galeri</a>
                                   <a class="dropdown-item" href="kategori_pengumuman">Kategori Pengumuman </a>
-                                  <a class="dropdown-item" href="artikel">Artikel </a>
-                                  <a class="dropdown-item" href="berita">Berita </a>
-                                  <a class="dropdown-item" href="galeri">Galeri </a>
-                                  <a class="dropdown-item" href="pengumuman">Pengumuman </a>
                                   <div class="dropdown-divider"></div>
                                 </div>
                               </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('artikel.index') }}">{{ __('Artikel') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('berita.index') }}">{{ __('Berita') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('galeri.index') }}">{{ __('Galeri') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pengumuman.index') }}">{{ __('Pengumuman') }}</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

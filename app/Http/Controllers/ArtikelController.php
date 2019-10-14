@@ -38,4 +38,38 @@ class ArtikelController extends Controller
 
 		return redirect(route('artikel.index'));
 	}
+
+	public function edit($id){
+		$listArtikel=Artikel::find($id);
+
+		if(empty($listArtikel)){
+			return redirect(route('artikel.index'));
+		}
+		$KategoriArtikel= KategoriArtikel::pluck('nama','id');
+		return view('artikel.edit',compact('listArtikel','KategoriArtikel'));
+	}
+
+	public function update($id, Request $request){
+		$listArtikel=Artikel::find($id);
+		$input= $request->all();
+
+		if(empty($listArtikel)){
+			return redirect(route('artikel.index'));
+		}
+
+		$listArtikel->update($input);
+
+		return redirect(route('artikel.index'));
+	}
+
+	public function destroy($id){
+		$listArtikel=Artikel::find($id);
+
+		if(empty($listArtikel)){
+			return redirect(route('artikel.index'));
+		}
+
+		$listArtikel->delete();
+		return redirect(route('artikel.index'));
+	}
 }
